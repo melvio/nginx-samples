@@ -1,9 +1,0 @@
-http {
-    server {
-        # service the default NGINX page on localhost:8080 (e.g. /var/www/html/index.nginx-debian.html)
-        listen 8080;
-    }
-}
-# required block by NGINX
-events {
-}
