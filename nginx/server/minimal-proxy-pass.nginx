@@ -1,0 +1,27 @@
+http {
+    # webserver
+    server {
+        listen 7001;
+
+        # when going to 'http://localhost', serve the index.html in data/www/
+        location / {
+            root /data/www;
+        }
+        location /images/ {
+            # when going to 'http://localhost/images/FILE.jpg' serve /data/images/FILE.jpg
+            root /data;
+        }
+    }
+
+    # proxy server
+    server {
+        listen 9009;
+        # when going to localhost:9009 redirect to localhost:7001
+        location / {
+            proxy_pass 'http://localhost:7001';
+        }
+    }
+}
+
+events {
+}
