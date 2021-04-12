@@ -4,9 +4,12 @@ http {
         location / {
             root /data/www;
         }
-        # when going to 'http://localhost/images/' show listing of files in /data/images/
-        # when going to 'http://localhost/images/FILE.jpg' serve /data/images/FILE.jpg
         location /images/ {
+            # autoindex creates a listing of the directory and is by default off
+            # when going to 'http://localhost/images/' show listing of files in /data/images/
+            autoindex on;
+
+            # when going to 'http://localhost/images/FILE.jpg' serve /data/images/FILE.jpg
             root /data;
         }
     }
