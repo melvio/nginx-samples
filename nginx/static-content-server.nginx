@@ -1,10 +1,16 @@
 http {
     server {
+        # when going to 'http://localhost', serve the index.html in data/www/
         location / {
             root /data/www;
         }
+        # when going to 'http://localhost/images/' show listing of files in /data/images/
+        # when going to 'http://localhost/images/FILE.jpg' serve /data/images/FILE.jpg
         location /images/ {
             root /data;
         }
     }
+}
+
+events {
 }
