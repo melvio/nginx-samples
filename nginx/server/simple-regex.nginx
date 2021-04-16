@@ -1,0 +1,16 @@
+http {
+    server {
+        listen 8080;
+        root /data/images/;
+
+
+        # going to localhost:8080/cab.jpg gives you 501 (not implemented)
+        location ~* \.jpg$ {
+            return 501; #
+        }
+        # going to http://localhost:8080/cab.png gives you /data/images/cab.png
+    }
+}
+
+events {
+}
