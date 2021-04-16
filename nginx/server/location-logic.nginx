@@ -1,0 +1,17 @@
+http {
+    server {
+        listen 8080;
+
+        # going to localhost:8080/cab.jpg gives you /data/images/cab.jpg
+        root /data/images;
+
+        # going to localhost:8080/images/cab.jpg gives you /data/images/cab.jpg
+        location /images/ {
+            root /data ;
+        }
+    }
+
+}
+
+events {
+}
