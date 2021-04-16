@@ -1,7 +1,9 @@
 FROM python:3
 
-ADD ./html/2222/ 2222/
+ARG PORT
+ENV PORT=${PORT}
+ADD ./html/"${PORT}"/ "${PORT}"/
 
-EXPOSE 2222
+EXPOSE "${PORT}":"${PORT}"
 
-ENTRYPOINT ["python3",  "-m", "http.server", "2222", "--directory", "2222/"]
+ENTRYPOINT python3  -m http.server ${PORT} --directory ${PORT}/
