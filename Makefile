@@ -4,6 +4,7 @@ reload_nginx:
 
 reset_nginx_to_ubuntu_default:
 	sudo cp ./nginx/ubunbtu-default.nginx.conf /etc/nginx/nginx.conf
+	sudo nginx -s reload
 
 DOCKER_CMD=docker build . --tag=python-http-server$${PORT} --build-arg PORT && docker run --publish $${PORT}:$${PORT} --detach python-http-server$${PORT}:latest
 start_httpservers:
