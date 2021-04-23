@@ -6,7 +6,7 @@ http {
 
     }
     upstream app2backend {
-        # localhost/app2 makes you go to either 127.0.0.
+        # localhost/app2 makes you go to either 127.0.0.1:4444 or 127.0.0.1:5555
         server 127.0.0.1:4444;
         server 127.0.0.1:5555;
 
