@@ -1,0 +1,31 @@
+http {
+
+    upstream app1backend {
+        server 127.0.0.1:2222;
+        server 127.0.0.1:3333;
+
+    }
+    upstream app2backend {
+        # localhost/app2 makes you go to either 127.0.0.
+        server 127.0.0.1:4444;
+        server 127.0.0.1:5555;
+
+    }
+
+    server {
+        listen 80;
+        # localhost/app1 makes you go to upstream app1backend
+        location /app1 {
+            proxy_pass http://app1backend/;
+        }
+
+        # localhost/app2 makes you go to upstream app2backend
+        location /app2 {
+            proxy_pass http://app2backend/;
+        }
+    }
+}
+
+
+events {
+}
