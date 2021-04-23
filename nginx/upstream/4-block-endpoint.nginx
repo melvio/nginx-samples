@@ -7,6 +7,7 @@ http {
     }
     upstream app2backend {
         # localhost/app2 makes you go to either 127.0.0.1:4444 or 127.0.0.1:5555
+        # localhost/app0/admin make you go to either 127.0.0.1:{4444,5555}/admin/index.html
         server 127.0.0.1:4444;
         server 127.0.0.1:5555;
 
