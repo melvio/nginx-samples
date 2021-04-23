@@ -1,4 +1,7 @@
 
+start_nginx:
+	sudo systemctl start nginx
+
 reload_nginx:
 	sudo nginx -s reload
 
